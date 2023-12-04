@@ -29,4 +29,4 @@ Route::post('/carro/disminuir', [CartController::class, 'decrement'])->name('dec
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
