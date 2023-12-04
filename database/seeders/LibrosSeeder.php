@@ -21,7 +21,7 @@ class LibrosSeeder extends Seeder
             'precio' => 29.99,
             'descripcion' => 'Una novela misteriosa que sigue la vida de un joven librero en la posguerra en Barcelona.',
             'categoria' => 1,
-            'imagen' => 'libro1.jpg'
+            'imagen' => 'public/img/libro1.jpg'
         ]);
 
         Libro::create([
@@ -32,7 +32,7 @@ class LibrosSeeder extends Seeder
             'precio' => 24.99,
             'descripcion' => 'Una obra maestra de realismo mágico que narra la historia de la familia Buendía en Macondo.',
             'categoria' => 2,
-            'imagen' => 'libro1.jpg'
+            'imagen' => 'public/img/libro1.jpg'
         ]);
 
         Libro::create([
@@ -43,7 +43,7 @@ class LibrosSeeder extends Seeder
             'precio' => 19.99,
             'descripcion' => 'El inicio de la famosa serie de Harry Potter, que sigue las aventuras del joven mago en Hogwarts.',
             'categoria' => 3,
-            'imagen' => 'libro1.jpg'
+            'imagen' => 'public/img/libro1.jpg'
         ]);
 
         Libro::create([
@@ -54,7 +54,7 @@ class LibrosSeeder extends Seeder
             'precio' => 21.99,
             'descripcion' => 'Una novela distópica que presenta una visión sombría de un futuro totalitario.',
             'categoria' => 4,
-            'imagen' => 'libro1.jpg'
+            'imagen' => 'public/img/libro1.jpg'
         ]);
 
         Libro::create([
@@ -65,7 +65,7 @@ class LibrosSeeder extends Seeder
             'precio' => 18.99,
             'descripcion' => 'Un clásico de la literatura estadounidense que aborda temas de raza e injusticia en el sur de los Estados Unidos.',
             'categoria' => 5,
-            'imagen' => 'libro1.jpg'
+            'imagen' => 'public/img/libro1.jpg'
         ]);
     }
 }

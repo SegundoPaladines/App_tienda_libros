@@ -20,10 +20,10 @@
                         @foreach($libros as $libro)
                             <div class="col-lg-3">
                                 <div class="card" style="margin-bottom: 20px; height: auto;">
-                                    <img src="/img/{{ $libro->imagen }}"
+                                    <img src="{{Storage::url($libro->imagen)}}"
                                         class="card-img-top mx-auto"
                                         style="height: 150px; width: 150px;display: block;"
-                                        alt="{{ $libro->imagen }}"
+                                        alt="{{ Storage::url($libro->imagen) }}"
                                     >
                                     <div class="card-body">
                                         <a href=""><h6 class="card-title">{{ $libro->nombre }}</h6></a>

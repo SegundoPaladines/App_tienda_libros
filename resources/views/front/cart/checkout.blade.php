@@ -39,7 +39,7 @@
                                         @endphp
                                         @foreach (Cart::content() as $libro)
                                             <tr class="align-middle">
-                                                <td><img width="80px" src="/img/{{$libro->options->image}}" alt=""></td>
+                                                <td><img width="80px" src="{{Storage::url($libro->options->image)}}" alt="{{Storage::url($libro->options->image)}}"></td>
                                                 <td>{{$libro->name}}</td>
                                                 <td>{{$libro->options->editorial}}</td>
                                                 <td>{{$libro->options->autor}}</td>

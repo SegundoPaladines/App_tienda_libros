@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\LibroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,15 @@ Route::post('/carro/quitar', [CartController::class, 'remove'])->name('remove');
 Route::post('/carro/aumentar', [CartController::class, 'increment'])->name('increment');
 Route::post('/carro/disminuir', [CartController::class, 'decrement'])->name('decrement');
 
+Route::get('/libros', [LibroController::class, 'list'])->name('libros');
+
+Route::get('/eliminar_libro/{id}', [LibroController::class, 'eliminar'])->name('eliminar-libro');
+
+Route::get('/agregar_libro', [LibroController::class, 'addView'])->name('fmr-add-libro');
+Route::post('/agregar_libro', [LibroController::class, 'add'])->name('add-libro');
+
+Route::get('/editar_libro/{id}', [LibroController::class, 'editar'])->name('editar-libro');
+
 Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('default-home');
