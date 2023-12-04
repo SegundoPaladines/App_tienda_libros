@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Libro;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 
 class LibroController extends Controller
@@ -16,6 +17,9 @@ class LibroController extends Controller
 
     public function eliminar($id){
         $libro = Libro::findOrFail($id);
+        if($libro->imagen){
+            Storage::delete($libro->imagen);
+        }
         $libro->delete();
         return redirect()->back()->with("success","Libro eliminado con Exito");
     }
@@ -66,7 +70,7 @@ class LibroController extends Controller
         }
     
         $libro->save();
-        
+
         return redirect()->back()->with('success', 'Libro ' . $libro->nombre . ' agregado exitosamente');
     }
     
