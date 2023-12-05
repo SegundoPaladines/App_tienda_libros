@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Libro;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\DB;
 
 class LibroController extends Controller
 {
@@ -15,13 +15,26 @@ class LibroController extends Controller
         return view('front.libro.list', compact('libros'));
     }
 
-    public function eliminar($id){
-        $libro = Libro::findOrFail($id);
-        if($libro->imagen){
-            Storage::delete($libro->imagen);
+    
+    public function eliminar($id) {
+        try {
+            DB::beginTransaction();
+
+            $libro = Libro::findOrFail($id);
+            if ($libro->imagen && Storage::exists($libro->imagen)) {
+                Storage::delete($libro->imagen);
+            }
+            $libro->delete();
+
+            DB::commit();
+            
+            return redirect()->back()->with("success", "Libro eliminado con éxito");
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return redirect()->back()->with("error", "Error al eliminar el libro");
         }
-        $libro->delete();
-        return redirect()->back()->with("success","Libro eliminado con Exito");
     }
 
     public function addView(){
