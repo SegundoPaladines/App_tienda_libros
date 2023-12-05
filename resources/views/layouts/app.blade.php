@@ -54,6 +54,9 @@
                             @guest
                                 @if (Route::has('login'))
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('checkout') }}">Carrito <span class="badge bg-danger">{{\Cart::count()}}</span></a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{ route('login') }}">Eres un Administrador?</a>
                                     </li>
                                 @endif
